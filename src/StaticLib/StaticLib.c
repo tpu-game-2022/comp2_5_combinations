@@ -46,13 +46,14 @@ int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
 	int num=0;
-	int* combi=(int*)malloc(sizeof(int)*array_size*array_size*array_size*array_size*array_size*array_size*array_size);
+	int* combi=(int*)malloc(sizeof(int)*array_size);
 	if (combi) {
 		int cbt=0;
 		for(int ary_num=0; ary_num <array_size; ary_num++){
 			combi[cbt++]=val_array[ary_num];
 			if(combi[cbt-1]==sum){num++;}
 			int s=cbt;
+			combi=(int*)realloc(combi, sizeof(int)*(cbt+s));
 			for(int i=0;i<s-1;i++){
 				combi[cbt++]=val_array[ary_num]+combi[i];
 				if(combi[cbt-1]==sum){num++;}
