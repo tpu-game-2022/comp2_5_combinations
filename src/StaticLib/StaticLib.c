@@ -60,6 +60,8 @@ int calc_combinations(int sum, const int* val_array, int array_size)
 		}
 		return num;
 	}
+        free(combi);
+
 	return 0;
 	
 }
