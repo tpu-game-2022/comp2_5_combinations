@@ -110,7 +110,7 @@ namespace UnitTest
 			const int num = 30;
 			int ar[num];
 			for (int i = 0; i < num; i++) { ar[i] = 1; }
-			Assert::AreEqual(1, calc_combinations(num, ar, num));
+			Assert::AreEqual(1, calc_combinations(num, ar, num));//1
 		}
 
 		TEST_METHOD(TestCalcCombinations_100_5)
@@ -118,7 +118,7 @@ namespace UnitTest
 			const int num = 100;
 			int ar[num];
 			for (int i = 0; i < num; i++) { ar[i] = 1; }
-			Assert::AreEqual(100 * 99 * 98 * 97 / 5 / 4 / 3 / 2 * 96, calc_combinations(5, ar, num));
+			Assert::AreEqual(100 * 99 * 98 * 97 / 5 / 4 / 3 / 2 * 96, calc_combinations(5, ar, num));//75,287,520
 		}
 
 		TEST_METHOD(TestCalcCombinations_10000_1)
@@ -127,7 +127,7 @@ namespace UnitTest
 			int* ar = (int*)malloc(num * sizeof(int));
 			if (ar) {
 				for (int i = 0; i < num; i++) { ar[i] = 1; }
-				Assert::AreEqual(num, calc_combinations(1, ar, num));
+				Assert::AreEqual(num, calc_combinations(1, ar, num));//10000
 				free(ar);
 			}
 		}
