@@ -9,7 +9,7 @@ namespace UnitTest
 	TEST_CLASS(UnitTestIsSame)
 	{
 	public:
-		
+
 		TEST_METHOD(TestIsSame0_0)
 		{
 			int val1 = 0;
