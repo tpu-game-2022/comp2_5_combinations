@@ -45,7 +45,7 @@ int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 	if (sum == val1 + val2 + val4) num++;
 	if (sum == val1 + val3 + val4) num++;
 	if (sum == val1 + val3 + val4) num++;
-	if (sum == val1 + val2 + val3+val4) num++;
+	if (sum == val1 + val2 + val3 + val4) num++;
 	return num;
 }
 
@@ -67,17 +67,16 @@ int calc_combinations(int sum, const int* val_array, int array_size)
 		}
 	}
 	
-	else for ( int i=0; i<array_size; i++)
+	else for (int i = 0; i < array_size; i++)
 	{
 
-						valsum += val_array[i];
-				
-					
-						if (sum == valsum)
-						{
-							num++;
-							valsum = 0;
-	
+		valsum += val_array[i];
+
+
+		if (sum == valsum)
+		{
+			num++;
+			valsum = 0;
 		}
 	}
 
