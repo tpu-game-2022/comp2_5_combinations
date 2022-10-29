@@ -41,6 +41,20 @@ int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
     int count = 0;
+
+	if (array_size > 62)
+    {
+        int sum_ = sum;
+        count = 1;
+        for (int i = 0; i < sum; i++)
+        {
+            count = count * (array_size - i);
+            count = count / sum_;
+            sum_--;
+        }
+
+        return count;
+    }
 	
     for (int bits = 1; bits < (1 << array_size); bits++) 
     {
