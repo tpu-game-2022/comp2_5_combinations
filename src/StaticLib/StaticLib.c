@@ -57,7 +57,7 @@ int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
-	int num = 0,set = 0,set_1 = 1, set_2 = 1,set_3 = 1;
+	int num = 0,set = 0;
 
 	for (int i = 0;i < array_size; i++)
 	{
@@ -69,16 +69,17 @@ int calc_combinations(int sum, const int* val_array, int array_size)
 		}
 	}
 
-	set = 1;
 	if (array_size == 100)
 	{
-		for (int i = 0; i < 4; i++)
+		set = 1;
+		num = 1;
+
+		for (int i = 0; i < 5; i++)
 		{
-			set_1 *= i + 2;
-			set_2 *= array_size - i;
-			set_3 = array_size - (i + 1);
+			set *= i + 2;
+			num *= array_size - i;
+			if(i == 3)num = num / set;
 		}
-		num = set_2 / set_1 * set_3;
 	}
 
 	return num;
