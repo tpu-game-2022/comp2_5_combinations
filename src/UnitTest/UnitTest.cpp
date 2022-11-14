@@ -88,7 +88,7 @@ namespace UnitTest
 		}
 
 	};
-
+	
 	TEST_CLASS(UnitTestCalcCombinations)
 	{
 	public:
@@ -132,4 +132,6 @@ namespace UnitTest
 			}
 		}
 	};
+	
+
 }
