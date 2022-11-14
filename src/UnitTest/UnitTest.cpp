@@ -58,57 +58,80 @@ namespace UnitTest
 	};
 
 
-	int UnitTestCalcCombinations4 (int sum,int val1,int val2 ,int val3,int val4)
+	TEST_CLASS(UnitTestCalcCombinations4)
 	{
-		int num = 0;
+	public:
 
-		if (sum == val1) num++;
-		if (sum == val2) num++;
-		if (sum == val3) num++;
-		if (sum == val4) num++;
-
-		if (sum == val1+val2) num++;
-		if (sum == val1 + val3) num++;
-		if (sum == val1 + val4) num++;
-		if (sum == val2 + val3) num++;
-		if (sum == val2 + val4) num++;
-		if (sum == val3 + val4) num++;
-
-
-		if (sum == val1 + val2+val3) num++;
-		if (sum == val1 + val3 + val4) num++;
-		if (sum == val1 + val2 + val4) num++;
-		if (sum == val2 + val3+ val4) num++;
-
-		if (sum == val1 + val2 + val3+val4) num++;
-		
-		return num;
-	};
-
-	void comb(int tmp_sum, int set_count, const int* val_array, int array_size, int sum, int* result)
-	{
-		if (set_count == array_size)
+		TEST_METHOD(TestCalcCombinations4_11111)
 		{
-			if (tmp_sum == sum)*result += 1;
-			return;
-
+			Assert::AreEqual(4, calc_combinations_4(1, 1, 1, 1, 1));// 1 1 1 1
 		}
 
-		if (tmp_sum > sum) return;
+		TEST_METHOD(TestCalcCombinations4_21111)
+		{
+			Assert::AreEqual(6, calc_combinations_4(2, 1, 1, 1, 1));// 11*6
+		}
 
-		comb(tmp_sum + val_array[set_count], set_count + 1, val_array, array_size, sum, result);
-		comb(tmp_sum , set_count+1, val_array, array_size, sum, result);
+		TEST_METHOD(TestCalcCombinations4_31111)
+		{
+			Assert::AreEqual(4, calc_combinations_4(3, 1, 1, 1, 1));// 111*4
+		}
 
-	}
+		TEST_METHOD(TestCalcCombinations4_41111)
+		{
+			Assert::AreEqual(1, calc_combinations_4(4, 1, 1, 1, 1));// 1111
+		}
 
-	int calc_combinations(int sum, const int* val_array, int array_size)
+		TEST_METHOD(TestCalcCombinations4_3123)
+		{
+			Assert::AreEqual(2, calc_combinations_4(4, 1, 2, 3, 4));// 4 13
+		}
+
+	};
+	
+	TEST_CLASS(UnitTestCalcCombinations)
 	{
-		int result = 0;
+	public:
 
-		comb(0, 0, val_array, array_size, sum, &result);
-		return result;
-	}
+		TEST_METHOD(TestCalcCombinations_1)
+		{
+			int ar[1] = { 1 };
+			Assert::AreEqual(1, calc_combinations(1, ar, 1));// 1
+		}
 
+		TEST_METHOD(TestCalcCombinations_2)
+		{
+			int ar[1] = { 2 };
+			Assert::AreEqual(1, calc_combinations(2, ar, 1));// 1
+		}
 
+		TEST_METHOD(TestCalcCombinations_30_30)
+		{
+			const int num = 30;
+			int ar[num];
+			for (int i = 0; i < num; i++) { ar[i] = 1; }
+			Assert::AreEqual(1, calc_combinations(num, ar, num));
+		}
+
+		TEST_METHOD(TestCalcCombinations_100_5)
+		{
+			const int num = 100;
+			int ar[num];
+			for (int i = 0; i < num; i++) { ar[i] = 1; }
+			Assert::AreEqual(100 * 99 * 98 * 97 / 5 / 4 / 3 / 2 * 96, calc_combinations(5, ar, num));
+		}
+
+		TEST_METHOD(TestCalcCombinations_10000_1)
+		{
+			const int num = 10000;
+			int* ar = (int*)malloc(num * sizeof(int));
+			if (ar) {
+				for (int i = 0; i < num; i++) { ar[i] = 1; }
+				Assert::AreEqual(num, calc_combinations(1, ar, num));
+				free(ar);
+			}
+		}
+	};
+	
 
 }
