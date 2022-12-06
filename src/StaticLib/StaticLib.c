@@ -30,11 +30,36 @@ int calc_combinations_3(int sum, int val1, int val2, int val3)
 // val1 から val4 の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations_4(int sum, int val1, int val2, int val3, int val4)
 {
-	return 0;
+	int num = 0;
+	int sums[15] = { val1,val2,val3,val4,val1 + val2,val1 + val3,val1 + val4,val2 + val3,val2 + val4,val3 + val4,val1 + val2 + val3,val1 + val3 + val4,val1 + val2 + val4,val2 + val3 + val4,val1 + val2 + val3 + val4 };
+	for (int i = 0; i < 15; i++)
+	{
+		if (sum == sums[i])
+		{
+			num++;
+		}
+	}
+	return num;
+}
+void comb(int tmp_sum, int set_count, const int* val_array, int array_size, int sum, int* result)
+{
+	if (set_count == array_size)
+	{
+		if (tmp_sum == sum)*result += 1;
+		return;
+	}
+	if (tmp_sum > sum)
+	{
+		return;
+	}
+	comb(tmp_sum + val_array[set_count], set_count + 1, val_array, array_size, sum, result);
+	comb(tmp_sum, set_count + 1, val_array, array_size, sum, result);
 }
 
 // val_array の配列に格納されたarray_sizeの数字の任意の組み合わせで値の和がsumになる組み合わせは何個ありますか？
 int calc_combinations(int sum, const int* val_array, int array_size)
 {
-	return 0;
+	int result = 0;
+	comb(0, 0, val_array, array_size, sum, &result);
+	return result;
 }
