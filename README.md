@@ -9,7 +9,7 @@
 前回は、3個の引数の組み合わせの数を求めましたが、もう少し多い場合を扱います。<br>
 分からなければC言語の復習・学習をして取り組みましょう。
 
-[![MS Build and Test](https://github.com/tpu-game-2022/comp2_5_combinations/actions/workflows/ms_test.yml/badge.svg)](https://github.com/tpu-game-2022/comp2_5_combinations/actions/workflows/ms_test.yml)
+[![MS Build and Test](https://github.com/UedaTomo/comp2_5_combinations/actions/workflows/ms_test.yml/badge.svg)](https://github.com/UedaTomo/comp2_5_combinations/actions/workflows/ms_test.yml)
 
 （このファイルの上の行の[tpu-game-2022]の部分(2か所)を自分のアカウント名に修正してください）
 
