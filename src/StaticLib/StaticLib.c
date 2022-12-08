@@ -15,7 +15,6 @@ bool is_same(int val1, int val2)
 int calc_combinations_3(int sum, int val1, int val2, int val3)
 {
 	int num = 0;
-	
 	if(sum == val1) num++;
 	if(sum == val2) num++;
 	if(sum == val3) num++;
