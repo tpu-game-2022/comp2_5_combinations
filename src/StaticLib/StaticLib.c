@@ -58,7 +58,7 @@ void comb(int tmp_sum, int set_count, const int* val_array, int array_size, int 
 {
 	if (set_count == array_size)
 	{
-		if (tmp_sum == sum) *result += 1;
+		if (tmp_sum == sum) * result += 1;
 		
 		return;
 	}
